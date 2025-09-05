@@ -205,7 +205,7 @@ jobs:
       contents: write
       packages: write
       actions: read
-      
+
     steps:
       - name: 下载 ZIP 工件
         uses: actions/download-artifact@v4
@@ -237,7 +237,7 @@ jobs:
           tag_name: "v5.1-16bpf"
           name: "米系 MT6895 Android 16 支持内核"
           body: |
-            内核: 5.1-16bpf
+            内核版本号: 5.1-16bpf
             编译时间: 2025-09-05 10:58:46
             机型: 米系 mt6895-5.1（基于 xaga crd 版源码修改编译）
 
@@ -249,7 +249,7 @@ jobs:
             - BBR / Brutal 拥塞控制算法支持: ❌
             - 三星 SSG IO 调度器支持: ❌
 
-             适配 Android 16 ROM
+            适配 Android 16 ROM
           files: ./release_zips/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
