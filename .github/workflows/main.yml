@@ -230,3 +230,26 @@ jobs:
           echo "TIME_FORM=$TIME_FORM" >> $GITHUB_ENV
           TAG_HEAD="redmi+xiaomi"
           echo "TAG_HEAD=$TAG_HEAD" >> $GITHUB_ENV
+
+      - name: 发布内核到 GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: "v5.1-16bpf"
+          name: "米系 MT6895 Android 16 支持内核"
+          body: |
+            内核: 5.1-16bpf
+            编译时间: 2025-09-05 10:58:46
+            机型: 米系 mt6895-5.1（基于 xaga crd 版源码修改编译）
+
+            特性:
+            - SukiSU Ultra + SUSFS + VFS + KPM + A16bpf
+            - hook 模式: manual
+            - LZ4KD 支持: ✅
+            - LZ4 支持: ✅
+            - BBR / Brutal 拥塞控制算法支持: ❌
+            - 三星 SSG IO 调度器支持: ❌
+
+             适配 Android 16 ROM
+          files: ./release_zips/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
